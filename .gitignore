@@ -10,3 +10,7 @@ config/federated.yml
 config/staging.yml
 .opsmanage
 put.sh
+.classpath
+.project
+.settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.jdt.core.prefs

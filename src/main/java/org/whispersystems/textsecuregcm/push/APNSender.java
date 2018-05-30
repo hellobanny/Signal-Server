@@ -49,17 +49,17 @@ public class APNSender implements Managed {
   private final AccountsManager    accountsManager;
   private final String             bundleId;
   private final boolean            sandbox;
-  private final RetryingApnsClient apnsClient;
-
+  private  RetryingApnsClient apnsClient;
+  
   public APNSender(AccountsManager accountsManager, ApnConfiguration configuration)
       throws IOException
   {
     this.accountsManager = accountsManager;
     this.bundleId        = configuration.getBundleId();
     this.sandbox         = configuration.isSandboxEnabled();
-    this.apnsClient      = new RetryingApnsClient(configuration.getPushCertificate(),
-                                                  configuration.getPushKey(),
-                                                  10);
+    //this.apnsClient      = new RetryingApnsClient(configuration.getPushCertificate(),
+    //                                              configuration.getPushKey(),
+    //                                              10);
   }
 
   @VisibleForTesting
