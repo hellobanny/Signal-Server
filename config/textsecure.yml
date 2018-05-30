@@ -51,7 +51,7 @@ profiles: # AWS S3 configuration
   accessKey: AKIAIPAPLLQMCIL5J7FA
   accessSecret: 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
   bucket: walletsplus
-  region: 'Asia Pacific (Tokyo)'
+  region: ap-northeast-1
 
 database: # Postgresql database configuration
   driverClass: org.postgresql.Driver

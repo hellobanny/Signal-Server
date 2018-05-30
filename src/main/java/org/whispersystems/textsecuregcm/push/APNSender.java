@@ -57,7 +57,7 @@ public class APNSender implements Managed {
     this.accountsManager = accountsManager;
     this.bundleId        = configuration.getBundleId();
     this.sandbox         = configuration.isSandboxEnabled();
-    //this.apnsClient      = new RetryingApnsClient(configuration.getPushCertificate(),
+    //ZZT this.apnsClient      = new RetryingApnsClient(configuration.getPushCertificate(),
     //                                              configuration.getPushKey(),
     //                                              10);
   }
@@ -74,6 +74,9 @@ public class APNSender implements Managed {
   public ListenableFuture<ApnResult> sendMessage(final ApnMessage message)
       throws TransientPushFailureException
   {
+	if(apnsClient == null) { //ZZT
+	  return null;
+	}
     String topic = bundleId;
 
     if (message.isVoip()) {
@@ -108,13 +111,13 @@ public class APNSender implements Managed {
   @Override
   public void start() throws Exception {
     this.executor = Executors.newSingleThreadExecutor();
-    this.apnsClient.connect(sandbox);
+    //ZZT this.apnsClient.connect(sandbox);
   }
 
   @Override
   public void stop() throws Exception {
     this.executor.shutdown();
-    this.apnsClient.disconnect();
+    //ZZT this.apnsClient.disconnect();
   }
 
   public void setApnFallbackManager(ApnFallbackManager fallbackManager) {
